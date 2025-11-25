@@ -1,0 +1,16 @@
+#### Annotate VCF file with SnpEff ################################################################################
+Ref: https://pcingola.github.io/SnpEff/snpeff/build_db/ 
+###################################################################################################################
+
+#Download the SnpEff latest core ZIP file from SnpEff website. Unzip it.
+curl -L https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip > snpEff_latest_core.zip
+
+#Make sure the java file is working
+java -jar snpEff.jar 
+
+#Custom database creation
+echo "Ghirsutum_DB.genome : Ghirsutum_DB " >> snpEff.config
+java -jar -Xmx4G snpEff.jar build -gff3 -v Ghirsutum_DB -noCheckCds -noCheckProtein
+
+#VCF file annotation
+java -jar -Xmx10g snpEff.jar ann -noLog -no-downstream -no-upstream -no-utr -c snpEff.config Ghirsutum_DB Ghirsutum550RIL.vcf > annotated.vcf
