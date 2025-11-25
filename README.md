@@ -1,7 +1,7 @@
 # GWAS workflow for cotton nep traits
 The scripts in this repository were used for GWAS and post-GWAS analyses of Cotton neps.
 
-##Custom scripts
+## Custom scripts
 A customized Python script was used to eliminate duplicates.
 Additionally, a customized Python script was used to calculate descriptive statistics.
 R scripts from the original sources were modified for this dataset to create violin plots, LDHeatmaps, expression heatmaps, and to customize Manhattan plots and local plots.
